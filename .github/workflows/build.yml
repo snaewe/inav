@@ -1,0 +1,16 @@
+name: Build firmware
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+        matrix:
+            goal: [test, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+    steps:
+        - uses: actions/checkout@v2
+        - run: make arm_sdk_install
+        - run: ./src/utils/build-ci.sh
+          env:
+            GOAL: ${{ matrix.goal }}
