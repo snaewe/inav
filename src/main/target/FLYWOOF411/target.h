@@ -56,6 +56,13 @@
 #define GYRO_INT_EXTI           PB3
 #define USE_MPU_DATA_READY_SIGNAL
 
+#define USE_GYRO
+#define USE_GYRO_MPU6000
+#define GYRO_MPU6000_ALIGN CW180_DEG
+
+#define USE_ACC
+#define USE_ACC_MPU6000
+#define ACC_MPU6000_ALIGN CW180_DEG
 // *************** Baro *****************************
 
 #define USE_I2C
