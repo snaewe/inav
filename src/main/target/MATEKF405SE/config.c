@@ -21,6 +21,7 @@
 #include "config/feature.h"
 #include "flight/mixer.h"
 #include "io/serial.h"
+#include "io/piniobox.h"
 #include "telemetry/telemetry.h"
 
 // alternative defaults settings for MATEKF405SE targets
@@ -35,4 +36,8 @@ void targetConfiguration(void)
     mixerConfigMutable()->platformType = PLATFORM_AIRPLANE;   // default mixer to Airplane
 
     serialConfigMutable()->portConfigs[7].functionMask = FUNCTION_TELEMETRY_SMARTPORT;
+
+#if MATEKF405SE_PINIO
+    pinioBoxConfigMutable()->permanentId[0] = 47;
+#endif
 }

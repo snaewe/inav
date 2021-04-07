@@ -147,10 +147,16 @@
 #define ADC1_DMA_STREAM             DMA2_Stream0
 #define ADC_CHANNEL_1_PIN           PC0
 #define ADC_CHANNEL_2_PIN           PC1
-#define ADC_CHANNEL_3_PIN           PC5
 #define VBAT_ADC_CHANNEL            ADC_CHN_1
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_2
+#if MATEKF405SE_PINIO
+#define USE_PINIO
+#define USE_PINIOBOX
+#define PINIO1_PIN                  PC5 // RSSI
+#else
+#define ADC_CHANNEL_3_PIN           PC5
 #define RSSI_ADC_CHANNEL            ADC_CHN_3
+#endif
 
 // *************** LED2812 ************************
 #define USE_LED_STRIP
